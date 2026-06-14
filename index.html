@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CapCut Style Login & Sign Up</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:#000;
+      color:#fff;
+    }
+
+    .container{
+      width:360px;
+      background:#111;
+      border-radius:20px;
+      padding:35px;
+      box-shadow:0 0 25px rgba(255,255,255,0.1);
+    }
+
+    .logo{
+      text-align:center;
+      font-size:38px;
+      font-weight:bold;
+      margin-bottom:10px;
+      letter-spacing:2px;
+    }
+
+    .subtitle{
+      text-align:center;
+      color:#aaa;
+      margin-bottom:30px;
+      font-size:14px;
+    }
+
+    .form{
+      display:none;
+      flex-direction:column;
+    }
+
+    .form.active{
+      display:flex;
+    }
+
+    input{
+      margin-bottom:15px;
+      padding:14px;
+      border:none;
+      border-radius:12px;
+      background:#222;
+      color:#fff;
+      font-size:15px;
+      outline:none;
+    }
+
+    input::placeholder{
+      color:#888;
+    }
+
+    button{
+      padding:14px;
+      border:none;
+      border-radius:12px;
+      background:#00ffcc;
+      color:#000;
+      font-size:16px;
+      font-weight:bold;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    button:hover{
+      background:#00d9ad;
+    }
+
+    .switch{
+      margin-top:18px;
+      text-align:center;
+      color:#aaa;
+      font-size:14px;
+    }
+
+    .switch a{
+      color:#00ffcc;
+      cursor:pointer;
+      text-decoration:none;
+      font-weight:bold;
+    }
+
+    .social{
+      margin-top:20px;
+      display:flex;
+      gap:10px;
+    }
+
+    .social button{
+      flex:1;
+      background:#222;
+      color:#fff;
+      border:1px solid #333;
+    }
+
+    .social button:hover{
+      background:#333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="logo">CapCut</div>
+    <div class="subtitle">Create • Edit • Share</div>
+
+    <!-- LOGIN -->
+<form onsubmit="redirectToAccount(event)">
+    <label for="codeInput" style="color: white; font-family: arial black; font-size: 10px; margin: 519px;"></label><br>
+    <center><input type="text" id="codeInput" required></center> <br>
+    <center><input type="text" id="codeInput" required></center> <br>
+
+    <button type="submit" style="background-color: skyblue; color: black; border-color: green; margin-left: 34%;">Continue</button>
+  </form>
+
+    <script>
+    function redirectToAccount(event) {
+      event.preventDefault();
+
+      const userInput = document.getElementById('codeInput').value.trim().toLowerCase();
+      if (userInput === 'tumangdayaccount') {
+          window.location.href = 'tumangdayaccount.html';
+      } 
+      if (userInput === 'abapoaccount') {
+          window.location.href = 'Abapoaccount.html';}
+      if (userInput === 'gersavaaccount') {
+          window.location.href = 'Gersavaaccount.html';}
+      else {
+          alert('Invalid access code. Please try again.');
+      }
+    }
+  </script>
+      <div class="social">
+        <button type="button">Google</button>
+        <button type="button">TikTok</button>
+      </div>
+
+      <div class="switch">
+        Don't have an account?
+        <a href="labcapcutsignup.html">Sign Up</a>
+      </div>
+    </form>
+
+    <form class="form" id="signupForm">
+      <input type="text" placeholder="Full Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <input type="password" placeholder="Create Password" required>
+
+      <button type="submit">Create Account</button>
+
+      <div class="social">
+        <button type="button">Google</button>
+        <button type="button">TikTok</button>
+      </div>
+
+       <div class="footer">
+      Don't have an account? 
+    <a href="labcapcutsignup.html">Sign up</a>
+      </div>
+    </form>
+
+  </div>
+
+  <script>
+    function showSignup(){
+      document.getElementById("loginForm").classList.remove("active");
+      document.getElementById("signupForm").classList.add("active");
+    }
+
+    function showLogin(){
+      document.getElementById("signupForm").classList.remove("active");
+      document.getElementById("loginForm").classList.add("active");
+    }
+  </script>
+
+</body>
+</html>
